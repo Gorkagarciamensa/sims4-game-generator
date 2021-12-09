@@ -1,0 +1,30 @@
+:root {
+  --height100: 100vh;
+  --bodyHeight: 90vh;
+  --headerHeight: 5vh;
+  --footerHeight: 5vh;
+
+  --width50: 50%;
+  --width70: 70%;
+  --width30: 30%;
+
+  --width-img: 24px;
+  --height-img: 24px;
+
+  --rem-xxs: 0.25rem;
+  --rem-xs: 0.5rem;
+  --rem-s: 1rem;
+  --rem-s-m: 1.5rem;
+  --rem-m: 2rem;
+  --rem-l: 3rem;
+  --rem-xl: 4rem;
+  --rem-xxl: 5rem;
+  --rem-largest: 9rem;
+
+  --font-size-s: 14px;
+
+  --color-primary: #f6f6f6;
+  --color-secondary: #64ea0d;
+  --color-tertiary: #4338ca;
+  --color-tertiary-hover: #685fca;
+}

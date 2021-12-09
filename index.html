@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="./assets/sims-logo.png">
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <link rel="stylesheet" href="/public/css/trumps.css">
+    <link rel="stylesheet" href="/public/css/loader.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
+    <script src="./scripts/random-game.js" defer type="module"></script>
+    <script src="./scripts/random-sims.js" defer type="module"></script>
+</head>
+
+<body>
+    <header> SIMS 4 RANDOM GAME GENERATOR </header>
+    <main data-main>
+        <section class="section-boxed margin-bottom-s">
+            <div class="section-boxed--child">
+                <div class="section-boxed--flex display padding-top--xs">
+                    <div class="section-boxed--box">
+                        <img class="img-size" src="./assets/sims-logo.png" alt="">
+                        <p class="word-break-center"> Simoleon </p>
+                        <span class="img-size"></span>
+                    </div>
+                    <div class="section-boxed--box">
+                        <img class="img-size" src="./assets/sims-logo.png" alt="">
+                        <p class="word-break-center"> Expansion Pack </p>
+                        <span class="img-size"></span>
+                    </div>
+                    <div class="section-boxed--box">
+                        <img class="img-size" src="./assets/sims-logo.png" alt="">
+                        <p class="word-break-center"> Game Pack </p>
+                        <span class="img-size"></span>
+                    </div>
+                    <div class="section-boxed--box">
+                        <img class="img-size" src="./assets/sims-logo.png" alt="">
+                        <p class="word-break-center"> Stuff Pack </p>
+                        <span class="img-size"></span>
+                    </div>
+                    <div class="section-boxed--box">
+                        <img class="img-size" src="./assets/sims-logo.png" alt="">
+                        <p class="word-break-center"> Type of Home </p>
+                        <span class="img-size"></span>
+                    </div>
+                    <div class="section-boxed--box">
+                        <img class="img-size" src="./assets/sims-logo.png" alt="">
+                        <p class="word-break-center"> World </p>
+                        <span class="img-size"></span>
+                    </div>
+                </div>
+                <div class="section-boxed--flex padding-bottom--xs" data-pack>
+                    <p class="generate-pack-text-button" id="generate-pack-text" role="button">Generate Pack</p>
+                    <!--Dynamic content here-->
+                </div>
+            </div>
+
+
+
+        </section>
+
+        <section class="section-boxed margin-bottom-s" data-household>
+            <div class="section-boxed--child">
+                <div class="section-boxed--flex display padding-vertical--xs">
+                    <div class="section-boxed--box">
+                        <img class="img-size" src="./assets/sims-logo.png" alt="">
+                        <p class="word-break-center"> Race </p>
+                        <span class="img-size"></span>
+                    </div>
+                    <div class="section-boxed--box">
+                        <img class="img-size" src="./assets/sims-logo.png" alt="">
+                        <p class="word-break-center"> Gender </p>
+                        <span class="img-size"></span>
+                    </div>
+                    <div class="section-boxed--box">
+                        <img class="img-size" src="./assets/sims-logo.png" alt="">
+                        <p class="word-break-center"> Type </p>
+                        <span class="img-size"></span>
+                    </div>
+                    <div class="section-boxed--box">
+                        <img class="img-size" src="./assets/sims-logo.png" alt="">
+                        <p class="word-break-center"> Profession </p>
+                        <span class="img-size"></span>
+                    </div>
+                    <div class="section-boxed--box">
+                        <img class="img-size" src="./assets/sims-logo.png" alt="">
+                        <p class="word-break-center"> Aspirations </p>
+                        <span class="img-size"></span>
+                    </div>
+                </div>
+                <div class="section-boxed--flex padding-bottom--xs" data-household>
+                    <p class="generate-pack-text-button" id="generate-household-text" role="button">
+                        Generate Household
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!--Dynamic Section here-->
+
+    </main>
+    <footer>
+        <div class="width-30"></div>
+        <div class="footer-flex">
+            <button class="footer-button" id="generate-all">Generate All</button>
+            <button class="footer-button" id="generate-pack">Generate Pack</button>
+            <button class="footer-button" id="generate-household">Generate Household</button>
+        </div>
+    </footer>
+</body>
+
+</html>

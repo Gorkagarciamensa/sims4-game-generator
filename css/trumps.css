@@ -1,0 +1,86 @@
+@import './_variables.css';
+
+.margin-m {
+  margin: var(--rem-m);
+}
+
+.margin-top-s {
+  margin-top: var(--rem-s);
+}
+
+.margin-top-m {
+  margin-top: var(--rem-m);
+}
+
+.margin-right-xxl {
+  margin-right: var(--rem-xxl);
+}
+.margin-left-xxl {
+  margin-left: var(--rem-xxl);
+}
+
+.margin-bottom {
+  margin-bottom: var(--rem-);
+}
+
+.margin-bottom-s {
+  margin-bottom: var(--rem-s);
+}
+.margin-bottom-xxl {
+  margin-bottom: var(--rem-xxl);
+}
+
+.padding-top--xs {
+  padding-top: var(--rem-xs);
+}
+
+.padding-bottom--xs {
+  padding-bottom: var(--rem-xs);
+}
+
+.padding-vertical--xs {
+  padding: var(--rem-xs) 0;
+}
+
+.min-height--largest {
+  min-height: var(--rem-largest);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.display {
+  display: flex;
+}
+
+.display-none {
+  display: none;
+}
+
+.flex-gap--l {
+  gap: 5.125rem;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+@media screen and (max-width: 1300px) {
+  .padding-bottom--xs {
+    padding-bottom: 0;
+  }
+  .padding-top--xs {
+    padding-top: 0;
+  }
+
+  .margin-top-s {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 625px) {
+  .display {
+    display: none;
+  }
+}
