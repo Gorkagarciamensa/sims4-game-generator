@@ -1,5 +1,3 @@
-@import './_variables.css';
-
 .margin-m {
   margin: var(--rem-m);
 }
