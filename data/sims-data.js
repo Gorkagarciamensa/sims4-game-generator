@@ -501,6 +501,16 @@ export const HOUSEHOLD_DATA = {
       icon: './assets/aspiration-icons/zen-guru.png',
       type_key: 'zen_guru',
     },
+    neighborhood_confidante: {
+      name: 'Neighborhood Confidante',
+      icon: './assets/aspiration-icons/neighborhood-confidante.png',
+      type_key: 'neighborhood_confidante',
+    },
+    villainous_valentine: {
+      name: 'Villanious Valentine',
+      icon: './assets/aspiration-icons/villainous-valentine.png',
+      type_key: 'villainous_valentine',
+    },
   },
   type: {
     young_adult: {

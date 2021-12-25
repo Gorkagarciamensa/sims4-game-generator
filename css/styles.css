@@ -147,6 +147,11 @@ footer {
   text-align: center;
 }
 
+.word-break-center--grey {
+  text-align: center;
+  color: grey;
+}
+
 @media screen and (max-width: 1300px) {
   main {
     flex-direction: row;

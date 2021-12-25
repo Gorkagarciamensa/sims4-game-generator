@@ -192,7 +192,7 @@ function generateStaticBox(householdName) {
   img.classList.add('img-size');
 
   const p = document.createElement('p');
-  p.classList.add('word-break-center');
+  p.classList.add('word-break-center--grey');
   p.innerHTML = householdName;
 
   const ghostElement = document.createElement('span');
