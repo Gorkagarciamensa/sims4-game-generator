@@ -136,6 +136,12 @@ const PACKS = {
       name: 'Dream Home',
       icon: './assets/icons/dream_home_decorator.png',
     },
+    {
+      type_key: 'game_pack',
+      type: 'Game Pack',
+      name: 'My Wedding Stories',
+      icon: './assets/icons/my_wedding_stories.png',
+    },
   ],
   stuff_pack: [
     {
