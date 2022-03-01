@@ -136,6 +136,12 @@ const PACKS = {
       name: 'Dream Home',
       icon: './assets/icons/dream_home_decorator.png',
     },
+    {
+      type_key: 'game_pack',
+      type: 'Game Pack',
+      name: 'My Wedding Stories',
+      icon: './assets/icons/my_wedding_stories.png',
+    },
   ],
   stuff_pack: [
     {
@@ -357,6 +363,12 @@ const PACKS = {
       type: 'World Generator',
       name: 'Henford-on-Bagley',
       icon: './assets/icons/henford_on_bagley.png',
+    },
+    {
+      type_key: 'world_generator',
+      type: 'World Generator',
+      name: 'Tartosa',
+      icon: './assets/icons/tartosa.png',
     },
   ],
 };
