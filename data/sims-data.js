@@ -193,6 +193,21 @@ export const PROFESSIONS = {
       icon: './assets/generic-image.png',
       type_key: 'writer',
     },
+    veterinarian: {
+      name: 'Veterinarian',
+      icon: './assets/icons/veterinarian.png',
+      type_key: 'veterinarian',
+    },
+    owning_restaurant: {
+      name: 'Owning a Restaurant',
+      icon: './assets/generic-image.png',
+      type_key: 'owning_restaurant',
+    },
+    owning_retail_shop: {
+      name: 'Owning a Retail Shop',
+      icon: './assets/generic-image.png',
+      type_key: 'owning_retail_shop',
+    },
     ...TEENAGER_PROFESSIONS,
   },
   teenager_professions: TEENAGER_PROFESSIONS,
