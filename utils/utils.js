@@ -29,29 +29,24 @@ export function generateRandomIncome() {
   return random_income;
 }
 
-export function generateBoxComponent(
-  pack,
-  clickHandler,
-  isSimoleon = false,
-  key = null
-) {
-  const div = document.createElement('div');
+export function generateBoxComponent({ pack, clickHandler, isSimoleon, key }) {
+  const div = document.createElement("div");
   div.id = pack.type_key;
   if (key) {
     div.setAttribute(`data-${key}-${pack.type_key}`, `${key}`);
   }
 
-  const image = document.createElement('img');
-  const p = document.createElement('p');
-  const rerollImg = document.createElement('img');
+  const image = document.createElement("img");
+  const p = document.createElement("p");
+  const rerollImg = document.createElement("img");
 
-  div.classList.add('section-boxed--box');
-  image.classList.add('img-size');
-  p.classList.add('word-break-center');
-  rerollImg.classList.add('img-size', 'cursor-pointer');
-  rerollImg.src = './assets/icons/reroll.png';
-  rerollImg.setAttribute('data-reroll', 'reroll');
-  rerollImg.addEventListener('click', clickHandler);
+  div.classList.add("section-boxed--box");
+  image.classList.add("img-size");
+  p.classList.add("word-break-center");
+  rerollImg.classList.add("img-size", "cursor-pointer");
+  rerollImg.src = "./assets/icons/reroll.png";
+  rerollImg.setAttribute("data-reroll", "reroll");
+  rerollImg.addEventListener("click", clickHandler);
 
   image.src = pack.icon;
   p.innerHTML = isSimoleon ? generateRandomIncome() : pack.name;
@@ -64,46 +59,42 @@ export function generateBoxComponent(
 }
 
 export function generateNoDataBoxComponent() {
-  const noDataBody = document.createElement('div');
-  noDataBody.classList.add('section-boxed--box', 'justify-center');
-  const p = document.createElement('p');
+  const noDataBody = document.createElement("div");
+  noDataBody.classList.add("section-boxed--box", "justify-center");
+  const p = document.createElement("p");
   p.innerHTML = "Doesn't have";
-  p.classList.add('no-data-text');
+  p.classList.add("no-data-text");
   noDataBody.appendChild(p);
   return noDataBody;
 }
 
-export function generateLoader(allSelectors) {
-  for (const parent of allSelectors) {
-    while (parent.firstChild) {
-      parent.removeChild(parent.lastChild);
-    }
-
-    const div = document.createElement('div');
-    div.classList.add('lds-ellipsis');
-    div.setAttribute('data-loader', 'loader');
-
-    for (let i = 0; i < LOADER_LENGTH; i++) {
-      const childDiv = document.createElement('div');
-      div.appendChild(childDiv);
-    }
-
-    parent.appendChild(div);
-  }
+export function generateFullLoader(allSelectors) {
+  generateLoader({ selectors: allSelectors, className: "lds-ellipsis" });
 }
 
 export function generateSingleLoader(allSelectors) {
-  for (const parent of allSelectors) {
+  generateLoader({ selectors: allSelectors, className: "lds-ellipsis-small" });
+}
+
+export function onLoadingEnd(callback) {
+  setTimeout(() => {
+    removeLoader();
+    callback();
+  }, 500);
+}
+
+function generateLoader({ selectors, className }) {
+  for (const parent of selectors) {
     while (parent.firstChild) {
       parent.removeChild(parent.lastChild);
     }
 
-    const div = document.createElement('div');
-    div.classList.add('lds-ellipsis-small');
-    div.setAttribute('data-loader', 'loader');
+    const div = document.createElement("div");
+    div.classList.add(className);
+    div.setAttribute("data-loader", "loader");
 
     for (let i = 0; i < LOADER_LENGTH; i++) {
-      const childDiv = document.createElement('div');
+      const childDiv = document.createElement("div");
       div.appendChild(childDiv);
     }
 
@@ -111,7 +102,7 @@ export function generateSingleLoader(allSelectors) {
   }
 }
 
-export function removeLoader() {
-  const loader = document.querySelector('[data-loader]');
-  loader.classList.remove('lds-ellipsis');
+function removeLoader() {
+  const loader = document.querySelector("[data-loader]");
+  loader.classList.remove("lds-ellipsis");
 }

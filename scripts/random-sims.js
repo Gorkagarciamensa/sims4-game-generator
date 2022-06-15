@@ -1,50 +1,49 @@
-import { HOUSEHOLD_DATA } from '../data/sims-data.js';
+import { HOUSEHOLD_DATA } from "../data/sims-data.js";
 import {
   createRandomNumber,
   generateBoxComponent,
-  generateLoader,
+  generateFullLoader,
   generateNoDataBoxComponent,
-  removeLoader,
+  onLoadingEnd,
   returnRandomWord,
-} from '../utils/utils.js';
-import { generateGame } from './random-game.js';
+} from "../utils/utils.js";
+import { generateGame } from "./random-game.js";
 
 const HOUSEHOLDS_NAMES = [
-  'Race',
-  'Gender',
-  'Type',
-  'Profession',
-  'Aspirations',
+  "Race",
+  "Gender",
+  "Type",
+  "Profession",
+  "Aspirations",
 ];
 
 // DOM elements
-const houseHoldButton = document.getElementById('generate-household');
-const houseHoldButtonText = document.getElementById('generate-household-text');
-const generateAllButton = document.getElementById('generate-all');
-const main = document.querySelector('[data-main]');
+const houseHoldButton = document.getElementById("generate-household");
+const houseHoldButtonText = document.getElementById("generate-household-text");
+const generateAllButton = document.getElementById("generate-all");
+const main = document.querySelector("[data-main]");
 
-houseHoldButton.addEventListener('click', () => {
+houseHoldButton.addEventListener("click", () => {
   generateFamily();
 });
-houseHoldButtonText.addEventListener('click', () => {
+houseHoldButtonText.addEventListener("click", () => {
   generateFamily();
 });
 
-generateAllButton.addEventListener('click', () => {
+generateAllButton.addEventListener("click", () => {
   generateGame();
   generateFamily();
 });
 
 function generateFamily() {
-  const householdPlaceholder = document.querySelectorAll('[data-household]');
-  generateLoader(householdPlaceholder);
-  setTimeout(() => {
-    removeLoader();
+  const householdPlaceholder = document.querySelectorAll("[data-household]");
+  generateFullLoader(householdPlaceholder);
+  onLoadingEnd(() => {
     for (const householder of householdPlaceholder) {
       householder.remove();
     }
     generateHousehold();
-  }, 500);
+  })
 }
 
 function generateGender() {
@@ -67,7 +66,7 @@ function generateRace(type) {
   const racesKeys = Object.keys(HOUSEHOLD_DATA.race);
   const raceKey = returnRandomWord(racesKeys);
 
-  if (raceKey === 'human') return null;
+  if (raceKey === "human") return null;
 
   return HOUSEHOLD_DATA.race[raceKey];
 }
@@ -117,7 +116,7 @@ function generateSims() {
     let randomType = returnRandomWord(typesKeys);
 
     if (mustHaveOneAdult) {
-      randomType = returnRandomWord(['young_adult', 'adult', 'elder']);
+      randomType = returnRandomWord(["young_adult", "adult", "elder"]);
       mustHaveOneAdult = false;
     }
 
@@ -142,11 +141,11 @@ function generateHousehold() {
 
   for (let i = 0; i < houseHolds.length; i++) {
     const section = generateSection(i + 1);
-    const body = document.createElement('div');
-    body.classList.add('section-boxed--child');
+    const body = document.createElement("div");
+    body.classList.add("section-boxed--child");
     const staticBody = generateStaticBody();
-    const dynamicContent = document.createElement('div');
-    dynamicContent.classList.add('section-boxed--flex', 'padding-bottom--xs');
+    const dynamicContent = document.createElement("div");
+    dynamicContent.classList.add("section-boxed--flex", "padding-bottom--xs");
 
     body.appendChild(staticBody);
     body.appendChild(dynamicContent);
@@ -154,12 +153,12 @@ function generateHousehold() {
     const household = houseHolds[i];
     for (const key of Object.keys(household)) {
       if (household[key]) {
-        const dynamicBody = generateBoxComponent(
-          household[key],
-          rerollSingleHouseHold,
-          false,
-          key
-        );
+        const dynamicBody = generateBoxComponent({
+          pack: household[key],
+          clickHandler: rerollSingleHouseHold,
+          isSimoleon: false,
+          key,
+        });
         dynamicContent.appendChild(dynamicBody.div);
       } else {
         const noDataBody = generateNoDataBoxComponent();
@@ -172,8 +171,8 @@ function generateHousehold() {
 }
 
 function generateStaticBody() {
-  const staticBody = document.createElement('div');
-  staticBody.classList.add('section-boxed--flex', 'display', 'padding-top--xs');
+  const staticBody = document.createElement("div");
+  staticBody.classList.add("section-boxed--flex", "display", "padding-top--xs");
 
   for (let i = 0; i < HOUSEHOLDS_NAMES.length; i++) {
     const staticBox = generateStaticBox(HOUSEHOLDS_NAMES[i]);
@@ -184,19 +183,19 @@ function generateStaticBody() {
 }
 
 function generateStaticBox(householdName) {
-  const staticBox = document.createElement('div');
-  staticBox.classList.add('section-boxed--box');
+  const staticBox = document.createElement("div");
+  staticBox.classList.add("section-boxed--box");
 
-  const img = document.createElement('img');
-  img.src = './assets/sims-logo.png';
-  img.classList.add('img-size');
+  const img = document.createElement("img");
+  img.src = "./assets/sims-logo.png";
+  img.classList.add("img-size");
 
-  const p = document.createElement('p');
-  p.classList.add('word-break-center--grey');
+  const p = document.createElement("p");
+  p.classList.add("word-break-center--grey");
   p.innerHTML = householdName;
 
-  const ghostElement = document.createElement('span');
-  ghostElement.classList.add('img-size');
+  const ghostElement = document.createElement("span");
+  ghostElement.classList.add("img-size");
 
   staticBox.appendChild(img);
   staticBox.appendChild(p);
@@ -206,14 +205,14 @@ function generateStaticBox(householdName) {
 }
 
 function generateSection(houseHoldIndex) {
-  const section = document.createElement('section');
-  section.setAttribute('data-household', 'household');
-  section.classList.add('section-boxed', 'margin-top-s', 'margin-bottom-s');
+  const section = document.createElement("section");
+  section.setAttribute("data-household", "household");
+  section.classList.add("section-boxed", "margin-top-s", "margin-bottom-s");
 
-  const title = document.createElement('div');
-  title.classList.add('section-boxed--title');
+  const title = document.createElement("div");
+  title.classList.add("section-boxed--title");
 
-  const p = document.createElement('p');
+  const p = document.createElement("p");
   p.innerHTML = `Sim ${houseHoldIndex}`;
 
   title.appendChild(p);

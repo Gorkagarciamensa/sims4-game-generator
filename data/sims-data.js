@@ -208,6 +208,11 @@ export const PROFESSIONS = {
       icon: './assets/generic-image.png',
       type_key: 'owning_retail_shop',
     },
+    discover_at_university: {
+      name: 'Discover at University',
+      icon: './assets/icons/discover_university.png',
+      type_key: 'discover_at_university',
+    },
     ...TEENAGER_PROFESSIONS,
   },
   teenager_professions: TEENAGER_PROFESSIONS,

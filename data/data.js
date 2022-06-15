@@ -142,6 +142,12 @@ const PACKS = {
       name: 'My Wedding Stories',
       icon: './assets/icons/my_wedding_stories.png',
     },
+    {
+      type_key: 'game_pack',
+      type: 'Game Pack',
+      name: 'Werewolves',
+      icon: './assets/icons/werewolves.png',
+    },
   ],
   stuff_pack: [
     {
@@ -369,6 +375,12 @@ const PACKS = {
       type: 'World Generator',
       name: 'Tartosa',
       icon: './assets/icons/tartosa.png',
+    },
+    {
+      type_key: 'world_generator',
+      type: 'World Generator',
+      name: 'Moonwood',
+      icon: './assets/icons/moonwood.png',
     },
   ],
 };
